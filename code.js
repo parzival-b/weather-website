@@ -38,6 +38,11 @@ if(locationName){
     const temp_c= data.current.temp_c;
     const temp_f= data.current.temp_f;
     const is_day=data.current.is_day;
+    const uv = data.current.uv;
+    const wind = data.current.wind_kph;
+    const date = data.location.localtime;
+    
+
 
     if(data.current.is_day==0){
         document.body.style.backgroundColor="rgba(0,0,128,0.89)";
