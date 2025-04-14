@@ -7,7 +7,7 @@ const scale = document.querySelector(".scale");
 
 
 
-async function enter_Location(){
+ function enter_Location(){
         if(loc && loc.value.length!==0){
             localStorage.setItem("location",loc.value);
         window.location.assign('./weather.html');
@@ -20,6 +20,9 @@ async function enter_Location(){
     
 
 }  
+
+
+
 if(locationName){
     let city= localStorage.getItem("location");
 
@@ -36,6 +39,15 @@ if(locationName){
     const temp_f= data.current.temp_f;
     const is_day=data.current.is_day;
 
+    if(data.current.is_day==0){
+        document.body.style.backgroundColor="rgba(0,0,128,0.89)";
+       
+    }
+    else{
+        document.body.style.backgroundColor="rgba(246,189,115)";
+    }
+    
+
 
 
     locationName.textContent=city+","+country;
@@ -44,7 +56,6 @@ if(locationName){
     scale.addEventListener('change', function () {
 
  if(scale.checked){
-    console.log(scale.checked);
             
             temp.textContent= temp_f+"°F";
  }
@@ -52,6 +63,10 @@ if(locationName){
     temp.textContent= temp_c+"°C";
  }
 });
+
+
+
+
 
 
 
