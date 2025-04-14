@@ -1,0 +1,144 @@
+body{
+    background-color: rgb(47, 115, 224);
+    font-family:fantasy;
+    color: white;
+    min-height:100vh;
+    padding:100px;
+    padding-left:200px;
+    padding-right:200px;
+
+}
+.top{
+display: flex;
+flex-direction: row;
+
+}
+
+.header{
+    background-color:rgba(255,255,255,0.3) ;
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgab(0,0,0,0.06);
+    width:300px;
+    height:300px;
+    border-radius:25px;
+    position:absolute;
+
+}
+#location_name{
+    font-family: 'Bagel Fat One';
+    letter-spacing: 1px;
+    padding:20px;
+    position: relative;
+    align-items: center;
+    text-align: center;
+font-size:35px;
+color:white;
+font-weight: 500;
+}
+.date{
+    position: relative;
+    font-family:"B612";
+    font-size:13px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1px;
+
+
+}
+.time{
+    position: relative;
+    font-family: 'Bagel Fat One';
+    font-size:40px;
+    align-items: center;
+    text-align: center;
+    margin:10px;
+    letter-spacing: 1px;
+
+}
+.info{
+    background-color:rgba(255,255,255,0.3) ;
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgab(0,0,0,0.06);
+    border-radius:25px;
+    position: relative;
+    left:350px;
+    width:800px;
+    height:300px;
+
+
+
+}
+#temp{
+position: relative;
+font-family: 'Bagel Fat One';
+font-size:40px;
+letter-spacing: 1px;
+padding-top:0px;
+padding-left:20px;
+
+
+}
+.scale{
+    
+    -webkit-appearance: none;
+    position:relative;
+    background-color:rgba(255,255,255,0.3);
+    border:1px solid rgba(255,255,255,0.5);
+    width:100px;
+    height:40px;
+    border-radius:20px;
+    top:-380px;
+    left:98%;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgab(0,0,0,0.06);
+
+}
+
+.scale::before{
+    
+content:"°C";
+text-align: center;
+align-content: center;
+position:absolute;
+top:-1px;
+width:40px;
+height:40px;
+background-color:white;
+border-radius: 20px;
+left:0;
+transition: 0.5s ease all;
+box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgab(0,0,0,0.06);
+
+
+}
+.scale::after{
+    position:absolute;
+content:"°F";
+color:rgba(255,255,255,0.6);
+text-align: center;
+align-content: center;
+top:10px;
+left:70px;
+visibility: visible;
+}
+.scale:checked::after{
+    position:absolute;
+    content:"°C";
+    color:rgba(255,255,255,0.6);
+
+    text-align: center;
+    align-content: center;
+    top:10px;
+    left:13px;
+    visibility: visible;
+}
+
+
+.scale:checked::before{
+    content:"°F";
+    color:black;
+    text-align: center;
+    align-content: center;
+   
+    background-color: white;
+    left:60px;
+}
