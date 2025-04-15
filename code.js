@@ -9,8 +9,11 @@ const feelsLike=document.getElementById("feels_like");
 
  function enter_Location(){
         if(loc && loc.value.length!==0){
-            localStorage.setItem("location",loc.value);
-        window.location.assign('./weather.html');
+            let firstLetter=loc.value.slice(0,1);
+            console.log(firstLetter);
+            let location=firstLetter.toUpperCase()+loc.value.slice(1,);
+            localStorage.setItem("location",location);
+       window.location.assign('./weather.html');
         
     }
     else if(loc.value.length===0){
@@ -23,6 +26,7 @@ const feelsLike=document.getElementById("feels_like");
 
 
 if(locationName){
+
     let city= localStorage.getItem("location");
 
 
@@ -39,9 +43,17 @@ if(locationName){
     const is_day=data.current.is_day;
     const uv = data.current.uv;
     const wind = data.current.wind_kph;
-    const date = data.location.localtime;
+    const localtime = data.location.localtime;
     const feels_like_c=data.current.feelslike_c;
     const feels_like_f=data.current.feelslike_f;
+
+
+
+    document.getElementById("time").textContent = localtime.slice(11,);
+  
+    locationName.textContent=city+","+country;
+    temp.textContent=temp_c+"°C";
+    feelsLike.textContent= "feels like: "+feels_like_c;
 
     if(data.current.is_day==0){
         document.body.style.backgroundColor="rgba(0,0,128,0.89)";
@@ -54,9 +66,7 @@ if(locationName){
    
 
 
-    locationName.textContent=city+","+country;
-    temp.textContent=temp_c+"°C";
-    feelsLike.textContent= "feels like: "+feels_like_c;
+  
 
     
     scale.addEventListener('change', function () {

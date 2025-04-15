@@ -21,6 +21,7 @@ flex-direction: row;
     height:300px;
     border-radius:25px;
     position:absolute;
+    
 
 }
 #location_name{
@@ -70,7 +71,7 @@ font-weight: 500;
 #feels_like{
 
 position: relative;
-top:-40px;
+top:-35px;
 padding-left:20px;
 font-family:"B612"; 
 letter-spacing: 1px;
