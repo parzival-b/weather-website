@@ -1,5 +1,4 @@
 body{
-    background-color: rgb(47, 115, 224);
     font-family:fantasy;
     color: white;
     min-height:100vh;
@@ -64,6 +63,19 @@ font-weight: 500;
     left:350px;
     width:800px;
     height:300px;
+
+
+
+}
+#feels_like{
+
+position: relative;
+top:-40px;
+padding-left:20px;
+font-family:"B612"; 
+letter-spacing: 1px;
+
+
 
 
 

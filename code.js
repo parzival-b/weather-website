@@ -4,7 +4,7 @@ const locationName= document.getElementById("location_name")
 const temp= document.getElementById("temp");
 const apikey="8a9eb755194a4b579c0141453251204";
 const scale = document.querySelector(".scale");
-
+const feelsLike=document.getElementById("feels_like");
 
 
  function enter_Location(){
@@ -20,7 +20,6 @@ const scale = document.querySelector(".scale");
     
 
 }  
-
 
 
 if(locationName){
@@ -41,8 +40,8 @@ if(locationName){
     const uv = data.current.uv;
     const wind = data.current.wind_kph;
     const date = data.location.localtime;
-    
-
+    const feels_like_c=data.current.feelslike_c;
+    const feels_like_f=data.current.feelslike_f;
 
     if(data.current.is_day==0){
         document.body.style.backgroundColor="rgba(0,0,128,0.89)";
@@ -51,32 +50,26 @@ if(locationName){
     else{
         document.body.style.backgroundColor="rgba(246,189,115)";
     }
-    
 
+   
 
 
     locationName.textContent=city+","+country;
-    temp.textContent=data.current.temp_c+"°C";
+    temp.textContent=temp_c+"°C";
+    feelsLike.textContent= "feels like: "+feels_like_c;
+
     
     scale.addEventListener('change', function () {
 
  if(scale.checked){
-            
+            feelsLike.textContent= "feels like: "+feels_like_f;
             temp.textContent= temp_f+"°F";
  }
  else{
+    feelsLike.textContent= "feels like: "+feels_like_c;
     temp.textContent= temp_c+"°C";
  }
 });
-
-
-
-
-
-
-
-
-
 
 
 
