@@ -91,6 +91,18 @@ padding-left:20px;
 
 
 }
+.sun{ position:absolute; 
+    top:45px;
+    left:70%;
+    background-color: yellow;
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    box-shadow: 0 0 40px 10px orange;
+    visibility:visible;
+
+
+}
 .scale{
     
     -webkit-appearance: none;

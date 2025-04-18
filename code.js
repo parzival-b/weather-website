@@ -46,6 +46,7 @@ if(locationName){
     const localtime = data.location.localtime;
     const feels_like_c=data.current.feelslike_c;
     const feels_like_f=data.current.feelslike_f;
+    const sunny= data.current.condition.text;
 
 
 
@@ -61,6 +62,14 @@ if(locationName){
     }
     else{
         document.body.style.backgroundColor="rgba(246,189,115)";
+    }
+
+
+if(sunny=="Sunny" || sunny=="Clear"){
+        document.querySelector(".sun").style.visibility="visible";
+    }
+    else{
+        document.querySelector(".sun").style.visibility="hidden";
     }
 
    
@@ -80,6 +89,9 @@ if(locationName){
     temp.textContent= temp_c+"°C";
  }
 });
+
+
+console.log(sunny);
 
 
 
