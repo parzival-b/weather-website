@@ -47,7 +47,7 @@ if(locationName){
     const feels_like_c=data.current.feelslike_c;
     const feels_like_f=data.current.feelslike_f;
     const sunny= data.current.condition.text;
-
+    const cloudy= data.current.cloud;
 
 
     document.getElementById("time").textContent = localtime.slice(11,);
@@ -66,13 +66,23 @@ if(locationName){
 
 
 if(sunny=="Sunny" || sunny=="Clear"){
-        document.querySelector(".sun").style.visibility="visible";
+    document.querySelector(".cloud").style.visibility="hidden";
+    document.querySelector(".sun").style.visibility="visible";
     }
     else{
+
         document.querySelector(".sun").style.visibility="hidden";
     }
 
    
+    if(cloudy==0){
+        document.querySelector(".sun").style.visibility="visible";
+        document.querySelector(".cloud").style.visibility="hidden";
+    }
+    else{
+        document.querySelector(".sun").style.visibility="hidden";
+        document.querySelector(".cloud").style.visibility="visible";
+    }
 
 
   
