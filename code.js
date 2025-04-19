@@ -58,14 +58,18 @@ if(locationName){
 
     if(data.current.is_day==0){
         document.body.style.backgroundColor="rgba(0,0,128,0.89)";
+        document.querySelector(".moon").style.visibility="visible";
+        document.querySelector(".sun").style.visibility="hidden";
        
     }
     else{
         document.body.style.backgroundColor="rgba(246,189,115)";
+        document.querySelector(".moon").style.visibility="hidden";
+        document.querySelector(".sun").style.visibility="visible";
     }
 
 
-if(sunny=="Sunny" || sunny=="Clear"){
+if(sunny=="Sunny" ){
     document.querySelector(".cloud").style.visibility="hidden";
     document.querySelector(".sun").style.visibility="visible";
     }
@@ -76,7 +80,6 @@ if(sunny=="Sunny" || sunny=="Clear"){
 
    
     if(cloudy==0){
-        document.querySelector(".sun").style.visibility="visible";
         document.querySelector(".cloud").style.visibility="hidden";
     }
     else{
