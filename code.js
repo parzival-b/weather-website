@@ -47,14 +47,16 @@ if(locationName){
     const feels_like_c=data.current.feelslike_c;
     const feels_like_f=data.current.feelslike_f;
     const sunny= data.current.condition.text;
-    const cloudy= data.current.cloud;
-
+    const cloudy= data.current.condition.text;
+    
 
     document.getElementById("time").textContent = localtime.slice(11,);
   
     locationName.textContent=city+","+country;
     temp.textContent=temp_c+"°C";
-    feelsLike.textContent= "feels like: "+feels_like_c;
+    feelsLike.textContent= "feels like: "+feels_like_c+"°C";
+    document.querySelector(".uv").innerHTML+="uv:"+uv;
+    document.querySelector(".wind_speed").innerHTML+=wind+"kph";
 
     if(data.current.is_day==0){
         document.body.style.backgroundColor="rgba(0,0,128,0.89)";
@@ -70,7 +72,6 @@ if(locationName){
 
 
 if(sunny=="Sunny" ){
-    document.querySelector(".cloud").style.visibility="hidden";
     document.querySelector(".sun").style.visibility="visible";
     }
     else{
@@ -79,12 +80,14 @@ if(sunny=="Sunny" ){
     }
 
    
-    if(cloudy==0){
-        document.querySelector(".cloud").style.visibility="hidden";
+    if(cloudy=="Partly cloudy"|| cloudy==="cloudy"){
+        document.querySelector(".cloud").style.visibility="visible";
+        document.querySelector(".moon").style.visibility="hidden";
+        document.querySelector(".sun").style.visibility="hidden";
+
     }
     else{
-        document.querySelector(".sun").style.visibility="hidden";
-        document.querySelector(".cloud").style.visibility="visible";
+        document.querySelector(".cloud").style.visibility="hidden";
     }
 
 
@@ -94,11 +97,11 @@ if(sunny=="Sunny" ){
     scale.addEventListener('change', function () {
 
  if(scale.checked){
-            feelsLike.textContent= "feels like: "+feels_like_f;
+            feelsLike.textContent= "feels like: "+feels_like_f+"°F";
             temp.textContent= temp_f+"°F";
  }
  else{
-    feelsLike.textContent= "feels like: "+feels_like_c;
+    feelsLike.textContent= "feels like: "+feels_like_c+"°C";
     temp.textContent= temp_c+"°C";
  }
 });
