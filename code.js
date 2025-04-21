@@ -32,7 +32,7 @@ if(locationName){
 
  async function get_weather(){
     
-    const response = await fetch("https://api.weatherapi.com/v1/current.json?key="+apikey+"&q="+city+"&aqi=no");
+    const response = await fetch("https://api.weatherapi.com/v1/forecast.json?key="+apikey+"&q="+city+"&aqi=no");
    
     const data = await response.json();
     console.log(data);
@@ -48,7 +48,9 @@ if(locationName){
     const feels_like_f=data.current.feelslike_f;
     const sunny= data.current.condition.text;
     const cloudy= data.current.condition.text;
-    
+    const moon = data.forecast.forecastday[0].astro.is_moon_up;
+    const sunrise = data.forecast.forecastday[0].astro.sunrise;
+    const sunset= data.forecast.forecastday[0].astro.sunset;
 
     document.getElementById("time").textContent = localtime.slice(11,);
   
@@ -58,17 +60,16 @@ if(locationName){
     document.querySelector(".uv").innerHTML+="uv:"+uv;
     document.querySelector(".wind_speed").innerHTML+=wind+"kph";
 
-    if(data.current.is_day==0){
-        document.body.style.backgroundColor="rgba(0,0,128,0.89)";
-        document.querySelector(".moon").style.visibility="visible";
-        document.querySelector(".sun").style.visibility="hidden";
-       
-    }
-    else{
-        document.body.style.backgroundColor="rgba(246,189,115)";
-        document.querySelector(".moon").style.visibility="hidden";
-        document.querySelector(".sun").style.visibility="visible";
-    }
+    
+
+if(moon==1 || is_day==0){
+    document.querySelector(".moon").style.visibility="visible";
+    document.body.style.backgroundColor="rgba(0,0,128,0.89)";
+}
+else{
+    document.body.style.backgroundColor="rgba(246,189,115)";
+    document.querySelector(".moon").style.visibility="hidden";
+}
 
 
 if(sunny=="Sunny" ){
