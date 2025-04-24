@@ -111,10 +111,22 @@ padding-left:20px;
     left:90px;
 
 }
+.sunrise{
+    position: absolute;
+    font-size: 20px;
+    font-family:"B612"; 
+    top:90px;
+    left:280px;
+}
 
 
-
-
+.sunset{
+    position: absolute;
+    font-size: 20px;
+    font-family:"B612"; 
+    top:160px;
+    left:280px;
+}
 
 .sun{ position:absolute; 
     top:45px;
