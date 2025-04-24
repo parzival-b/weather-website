@@ -59,8 +59,8 @@ if(locationName){
     feelsLike.textContent= "feels like: "+feels_like_c+"°C";
     document.querySelector(".uv").innerHTML+="uv:"+uv;
     document.querySelector(".wind_speed").innerHTML+=wind+"kph";
-
-    
+    document.querySelector(".sunrise").innerHTML+=sunrise;
+    document.querySelector(".sunset").innerHTML+=sunset;
 
 if(moon==1 || is_day==0){
     document.querySelector(".moon").style.visibility="visible";
