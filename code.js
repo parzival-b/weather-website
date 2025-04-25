@@ -38,7 +38,7 @@ if(locationName){
     console.log(data);
 
     
-
+    console.log(data.forecast.forecastday[0].hour);
     const country= data.location.country;
     const temp_c= data.current.temp_c;
     const temp_f= data.current.temp_f;
@@ -54,8 +54,13 @@ if(locationName){
     const sunrise = data.forecast.forecastday[0].astro.sunrise;
     const sunset= data.forecast.forecastday[0].astro.sunset;
 
+    const date = new Date(localtime);
+    const dayname= date.toLocaleDateString("en-US", { weekday: "long" });
+    const month = new Date(localtime);
+    const monthname = month.toLocaleDateString("en-US", { month: "long" });
+
     document.getElementById("time").textContent = localtime.slice(11,);
-  
+    document.getElementById("date").innerHTML+=dayname+","+localtime.slice(8,10)+","+monthname;
     locationName.textContent=city+","+country;
     temp.textContent=temp_c+"°C";
     feelsLike.textContent= "feels like: "+feels_like_c+"°C";
@@ -112,6 +117,10 @@ if(sunny=="Sunny" ){
  }
 });
 
+
+
+   
+    console.log(dayname);
 
 console.log(sunny);
 

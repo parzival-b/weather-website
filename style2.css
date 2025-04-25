@@ -17,7 +17,7 @@ flex-direction: row;
     background-color:rgba(255,255,255,0.2) ;
     border:1px solid rgba(255,255,255,0.2);
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    width:300px;
+    width:350px;
     height:300px;
     border-radius:25px;
     position:absolute;
@@ -38,7 +38,7 @@ font-weight: 500;
 .date{
     position: relative;
     font-family:"B612";
-    font-size:13px;
+    font-size:20px;
     align-items: center;
     text-align: center;
     letter-spacing: 1px;
@@ -239,7 +239,7 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
     
     }
 
-    .week{
+    .hourly{
 
         background-color:rgba(255,255,255,0.2) ;
         border:1px solid rgba(255,255,255,0.2);
@@ -247,9 +247,19 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
         border-radius:25px;
         position: absolute;
         top:450px;
-        width:1188px;
+        width:850px;
         height:250px;
-
+    }
+    .week{
+        background-color:rgba(255,255,255,0.2) ;
+        border:1px solid rgba(255,255,255,0.2);
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        border-radius:25px;
+        position: absolute;
+        top:450px;
+        width:300px;
+        height:250px;
+        left:1080px;
     }
 
 .scale{
