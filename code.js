@@ -30,12 +30,16 @@ if(locationName){
     let city= localStorage.getItem("location");
 
 
- async function get_weather(){
-    
+  async function get_weather(){
+    try{
     const response = await fetch("https://api.weatherapi.com/v1/forecast.json?key="+apikey+"&q="+city+"&aqi=no");
-   
     const data = await response.json();
+
     console.log(data);
+}
+    catch(error){
+        console.log(error);
+    }
 
     const country= data.location.country;
     const temp_c= data.current.temp_c;
@@ -61,6 +65,9 @@ if(locationName){
     document.querySelector(".wind_speed").innerHTML+=wind+"kph";
     document.querySelector(".sunrise").innerHTML+=sunrise;
     document.querySelector(".sunset").innerHTML+=sunset;
+
+
+    
 
 if(moon==1 || is_day==0){
     document.querySelector(".moon").style.visibility="visible";
