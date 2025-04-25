@@ -36,10 +36,8 @@ if(locationName){
     const data = await response.json();
 
     console.log(data);
-}
-    catch(error){
-        console.log(error);
-    }
+
+    
 
     const country= data.location.country;
     const temp_c= data.current.temp_c;
@@ -119,7 +117,10 @@ console.log(sunny);
 
 
 
-
+    }
+    catch(error){
+console.log(error);
+    }
 }
 get_weather();
 
