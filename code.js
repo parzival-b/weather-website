@@ -48,8 +48,8 @@ if(locationName){
     const localtime = data.location.localtime;
     const feels_like_c=data.current.feelslike_c;
     const feels_like_f=data.current.feelslike_f;
-    const sunny= data.current.condition.text;
-    const cloudy= data.current.condition.text;
+    const condition= data.current.condition.text;
+    
     const moon = data.forecast.forecastday[0].astro.is_moon_up;
     const sunrise = data.forecast.forecastday[0].astro.sunrise;
     const sunset= data.forecast.forecastday[0].astro.sunset;
@@ -82,7 +82,7 @@ else{
 }
 
 
-if(sunny=="Sunny" ){
+if(condition=="Sunny" ){
     document.querySelector(".sun").style.visibility="visible";
     }
     else{
@@ -91,7 +91,7 @@ if(sunny=="Sunny" ){
     }
 
    
-    if(cloudy=="Partly cloudy"|| cloudy==="cloudy"){
+    if(condition=="Partly cloudy"|| condition==="cloudy"){
         document.querySelector(".cloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
@@ -101,7 +101,14 @@ if(sunny=="Sunny" ){
         document.querySelector(".cloud").style.visibility="hidden";
     }
 
-
+    if(condition=="rainy" || condition=="Patchy light drizzle"){
+        document.querySelector(".raincloud").style.visibility="visible";
+        document.querySelector(".moon").style.visibility="hidden";
+        document.querySelector(".sun").style.visibility="hidden";
+    }
+    else{
+        document.querySelector(".raincloud").style.visibility="hidden";
+    }
   
 
     
@@ -122,7 +129,7 @@ if(sunny=="Sunny" ){
    
     console.log(dayname);
 
-console.log(sunny);
+console.log(condition);
 
 
 
