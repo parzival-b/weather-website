@@ -350,12 +350,17 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
         padding:50px;
         }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
+
+.hour{
+    width:max-content;
+    height:max-content;
+    border-radius: 15px;
+    font-family: 'Bagel Fat One';
+    background-color:rgba(255,255,255,0.4); 
+    padding:20px;
+    letter-spacing: 1px;
+
 }
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
 
 
 
@@ -365,9 +370,7 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
 
 
 
-
-
-    .week{
+.week{
         background-color:rgba(255,255,255,0.2) ;
         border:1px solid rgba(255,255,255,0.2);
         box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
@@ -377,7 +380,7 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
         width:300px;
         height:250px;
         left:1080px;
-    }
+}
 
 .scale{
     

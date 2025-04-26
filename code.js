@@ -69,8 +69,10 @@ if(locationName){
     document.querySelector(".sunrise").innerHTML+=sunrise;
     document.querySelector(".sunset").innerHTML+=sunset;
 
+    let timenow=Number(localtime.slice(11,13));
 
-    
+   
+    console.log(timenow);
 
 if(moon==1 || is_day==0){
     document.querySelector(".moon").style.visibility="visible";
@@ -101,7 +103,7 @@ if(condition=="Sunny" ){
         document.querySelector(".cloud").style.visibility="hidden";
     }
 
-    if(condition=="rainy" || condition=="Patchy light drizzle"){
+    if(condition=="rainy" || condition=="Patchy light drizzle" || condition==="Patchy rain nearby"){
         document.querySelector(".raincloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
@@ -123,6 +125,31 @@ if(condition=="Sunny" ){
     temp.textContent= temp_c+"°C";
  }
 });
+let nb=1;
+document.getElementById("timenow").innerHTML=timenow;
+if(timenow<12){
+    document.getElementById("timenow").innerHTML+=" AM";
+}
+else{
+    document.getElementById("timenow").innerHTML+=" PM";
+}
+
+
+
+ for(let i =timenow+1;i<=timenow+12;i++){
+    
+   document.getElementById("timenow+"+nb).textContent=i;
+   if(i<12){
+    document.getElementById("timenow+"+nb).textContent+=" AM";
+   }
+   else if(i==12){
+    document.getElementById("timenow+"+nb).textContent+=" PM";
+   }
+   else{
+    document.getElementById("timenow+"+nb).textContent=i-12+" PM";
+   }
+nb++;
+ }
 
 
 
