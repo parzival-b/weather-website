@@ -353,7 +353,7 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
 
 .hour{
     width:max-content;
-    height:max-content;
+    height:100px;
     border-radius: 15px;
     font-family: 'Bagel Fat One';
     background-color:rgba(255,255,255,0.4); 
