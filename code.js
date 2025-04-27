@@ -114,34 +114,25 @@ if(condition=="Sunny" ){
   
 
     
-    scale.addEventListener('change', function () {
-
- if(scale.checked){
-            feelsLike.textContent= "feels like: "+feels_like_f+"°F";
-            temp.textContent= temp_f+"°F";
- }
- else{
-    feelsLike.textContent= "feels like: "+feels_like_c+"°C";
-    temp.textContent= temp_c+"°C";
- }
-});
+ 
 
 
 let nb=1;
-document.getElementById("timenow").innerHTML+=timenow;
+const now= document.getElementById("timenow");
+now.innerHTML=timenow;
 if(timenow<12){
    
-    document.getElementById("timenow").innerHTML+=" AM";
-    document.getElementById("timenow").innerHTML+="<br>";
-    document.getElementById("timenow").innerHTML+=temp_c+" °C";
+    now.innerHTML+=" AM";
+    now.innerHTML+="<br>";
+   now.innerHTML+=temp_c+" °C";
 }
 else{
-    document.getElementById("timenow").innerHTML+=" PM";
-    document.getElementById("timenow").innerHTML+="<br>";
-    document.getElementById("timenow").innerHTML+=temp_c+" °C";
+   now.innerHTML+=" PM";
+    now.innerHTML+="<br>";
+    now.innerHTML+=temp_c+" °C";
 }
 
-
+// HOURLY WITH TEMP SIGN NOT CHANGED
 
  for(let i=timenow+1;i<=timenow+12;i++){
     
@@ -150,7 +141,7 @@ const element = document.getElementById("timenow+"+nb);
 const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
 const tempperhour_c=data.forecast.forecastday[0].hour[hour].temp_c;
 
-element.textContent=time;
+element.innerHTML=time;
 
 if(hour<12){
     element.innerHTML+=" AM";
@@ -164,9 +155,98 @@ else{
 }
 nb++;
  }
+// WHEN CHANGED THE DEGREE WE CHANGE EVERYTHIONG AGAIN
+ scale.addEventListener('change', function () {
+
+    if(scale.checked){
+               feelsLike.textContent= "feels like: "+feels_like_f+"°F";
+               temp.textContent= temp_f+"°F";
+
+               now.innerHTML=timenow;
+               if(timenow<12){
+                  
+                   now.innerHTML+=" AM";
+                   now.innerHTML+="<br>";
+                  now.innerHTML+=temp_f+" °F";
+               }
+               else{
+                  now.innerHTML+=" PM";
+                   now.innerHTML+="<br>";
+                   now.innerHTML+=temp_f+" °F";
+               }
+               
+
+               let nb=1;
+               for(let i=timenow+1;i<=timenow+12;i++){
+    
+                let hour = i%24;
+                const element = document.getElementById("timenow+"+nb);
+                const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
+                const tempperhour_f=data.forecast.forecastday[0].hour[hour].temp_f;
+                
+                element.textContent=time;
+                
+                if(hour<12){
+                    element.innerHTML+=" AM";
+                    element.innerHTML+="<br>";
+                    element.innerHTML+=tempperhour_f+" °F";
+                }
+                else{
+                    element.innerHTML+=" PM";
+                    element.innerHTML+="<br>";
+                    element.innerHTML+=tempperhour_f+" °F";
+                }
+                nb++;
+                 }
+               
+
+    }
+    else{
+       feelsLike.textContent= "feels like: "+feels_like_c+"°C";
+       temp.textContent= temp_c+"°C";
+
+       now.innerHTML=timenow;
+    if(timenow<12){
+   
+      now.innerHTML=" AM";
+      now.innerHTML+="<br>";
+      now.innerHTML+=temp_c+" °C";
+   }
+    else{
+     now.innerHTML+=" PM";
+     now.innerHTML+="<br>";
+     now.innerHTML+=temp_c+" °C";
+    }
 
 
+let nb=1;
+       for(let i=timenow+1;i<=timenow+12;i++){
+    
+        let hour = i%24;
+        const element = document.getElementById("timenow+"+nb);
+        const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
+        const tempperhour_c=data.forecast.forecastday[0].hour[hour].temp_c;
+        
+        element.textContent=time;
+        
+        if(hour<12){
+            element.innerHTML+=" AM";
+            element.innerHTML+="<br>";
+            element.innerHTML+=tempperhour_c+" °C";
+        }
+        else{
+            element.innerHTML+=" PM";
+            element.innerHTML+="<br>";
+            element.innerHTML+=tempperhour_c+" °C";
+        }
+        nb++;
+         }
 
+    }
+   });
+
+
+   
 
 console.log(condition);
 
