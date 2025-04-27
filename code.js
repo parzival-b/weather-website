@@ -87,29 +87,25 @@ else{
 if(condition=="Sunny" ){
     document.querySelector(".sun").style.visibility="visible";
     }
-    else{
-
-        document.querySelector(".sun").style.visibility="hidden";
-    }
+ 
 
    
-    if(condition=="Partly cloudy"|| condition==="cloudy"){
+   else if(condition=="Partly cloudy"|| condition==="cloudy"){
         document.querySelector(".cloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
 
     }
-    else{
-        document.querySelector(".cloud").style.visibility="hidden";
-    }
 
-    if(condition=="rainy" || condition=="Patchy light drizzle" || condition==="Patchy rain nearby"){
+   else  if(condition=="rainy" || condition=="Patchy light drizzle" || condition==="Patchy rain nearby"){
         document.querySelector(".raincloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
     }
     else{
+        document.querySelector(".sun").style.visibility="hidden";
         document.querySelector(".raincloud").style.visibility="hidden";
+        document.querySelector(".cloud").style.visibility="hidden";
     }
   
 
