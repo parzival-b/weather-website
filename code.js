@@ -90,7 +90,7 @@ if(condition=="Sunny" ){
  
 
    
-   else if(condition=="Partly cloudy"|| condition==="cloudy"){
+   else if(condition=="Partly Cloudy"|| condition==="cloudy"){
         document.querySelector(".cloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
@@ -115,15 +115,15 @@ if(condition=="Sunny" ){
 
 let nb=1;
 const now= document.getElementById("timenow");
-now.innerHTML=timenow;
+
 if(timenow<12){
    
-    now.innerHTML+=" AM";
+    now.innerHTML=timenow+" AM";
     now.innerHTML+="<br>";
-   now.innerHTML+=temp_c+" °C";
+    now.innerHTML+=temp_c+" °C";
 }
 else{
-   now.innerHTML+=" PM";
+    now.innerHTML=timenow-12+" PM";
     now.innerHTML+="<br>";
     now.innerHTML+=temp_c+" °C";
 }
@@ -137,15 +137,15 @@ const element = document.getElementById("timenow+"+nb);
 const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
 const tempperhour_c=data.forecast.forecastday[0].hour[hour].temp_c;
 
-element.innerHTML=time;
+
 
 if(hour<12){
-    element.innerHTML+=" AM";
+    element.innerHTML=time+" AM";
     element.innerHTML+="<br>";
     element.innerHTML+=tempperhour_c+" °C";
 }
 else{
-    element.innerHTML+=" PM";
+    element.innerHTML=time-12+" PM";
     element.innerHTML+="<br>";
     element.innerHTML+=tempperhour_c+" °C";
 }
@@ -159,16 +159,16 @@ nb++;
                feelsLike.textContent= "feels like: "+feels_like_f+"°F";
                temp.textContent= temp_f+"°F";
 
-               now.innerHTML=timenow;
+               
 
                if(timenow<12){
                   
-                   now.innerHTML+=" AM";
+                   now.innerHTML=timenow+" AM";
                    now.innerHTML+="<br>";
                   now.innerHTML+=temp_f+" °F";
                }
                else{
-                  now.innerHTML+=" PM";
+                  now.innerHTML=timenow-12+" PM";
                    now.innerHTML+="<br>";
                    now.innerHTML+=temp_f+" °F";
                }
@@ -182,15 +182,15 @@ nb++;
                 const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
                 const tempperhour_f=data.forecast.forecastday[0].hour[hour].temp_f;
                 
-                element.textContent=time;
+               
                 
                 if(hour<12){
-                    element.innerHTML+=" AM";
+                    element.innerHTML=time+" AM";
                     element.innerHTML+="<br>";
                     element.innerHTML+=tempperhour_f+" °F";
                 }
                 else{
-                    element.innerHTML+=" PM";
+                    element.innerHTML=time-12+" PM";
                     element.innerHTML+="<br>";
                     element.innerHTML+=tempperhour_f+" °F";
                 }
@@ -203,15 +203,15 @@ nb++;
        feelsLike.textContent= "feels like: "+feels_like_c+"°C";
        temp.textContent= temp_c+"°C";
 
-       now.innerHTML=timenow;
+       
     if(timenow<12){
    
-      now.innerHTML=" AM";
+      now.innerHTML=timenow+" AM";
       now.innerHTML+="<br>";
       now.innerHTML+=temp_c+" °C";
    }
     else{
-     now.innerHTML+=" PM";
+     now.innerHTML=timenow-12+" PM";
      now.innerHTML+="<br>";
      now.innerHTML+=temp_c+" °C";
     }
@@ -225,15 +225,14 @@ let nb=1;
         const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
         const tempperhour_c=data.forecast.forecastday[0].hour[hour].temp_c;
         
-        element.textContent=time;
         
         if(hour<12){
-            element.innerHTML+=" AM";
+            element.innerHTML=time+" AM";
             element.innerHTML+="<br>";
             element.innerHTML+=tempperhour_c+" °C";
         }
         else{
-            element.innerHTML+=" PM";
+            element.innerHTML=time-12+" PM";
             element.innerHTML+="<br>";
             element.innerHTML+=tempperhour_c+" °C";
         }
