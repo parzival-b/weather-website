@@ -74,7 +74,7 @@ if(locationName){
    
     console.log(timenow);
 
-if(moon==1 || is_day==0){
+if(moon==1){
     document.querySelector(".moon").style.visibility="visible";
     document.body.style.backgroundColor="rgba(0,0,128,0.89)";
 }
@@ -155,6 +155,7 @@ else{
 }
 nb++;
  }
+
 // WHEN CHANGED THE DEGREE WE CHANGE EVERYTHIONG AGAIN
  scale.addEventListener('change', function () {
 
@@ -163,6 +164,7 @@ nb++;
                temp.textContent= temp_f+"°F";
 
                now.innerHTML=timenow;
+
                if(timenow<12){
                   
                    now.innerHTML+=" AM";
@@ -246,7 +248,7 @@ let nb=1;
    });
 
 
-   
+
 
 console.log(condition);
 
