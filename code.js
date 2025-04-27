@@ -77,6 +77,7 @@ if(locationName){
 if(moon==1){
     document.querySelector(".moon").style.visibility="visible";
     document.body.style.backgroundColor="rgba(0,0,128,0.89)";
+    document.querySelector(".sun").style.visibility="visible";
 }
 else{
     document.body.style.backgroundColor="rgba(246,189,115)";
@@ -90,7 +91,7 @@ if(condition=="Sunny" ){
  
 
    
-   else if(condition=="Partly Cloudy"|| condition==="cloudy"){
+   else if(condition=="Partly Cloudy"|| condition==="cloudy" || condition=="Clear"){
         document.querySelector(".cloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
