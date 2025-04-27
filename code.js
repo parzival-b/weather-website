@@ -130,10 +130,15 @@ if(condition=="Sunny" ){
 let nb=1;
 document.getElementById("timenow").innerHTML+=timenow;
 if(timenow<12){
+   
     document.getElementById("timenow").innerHTML+=" AM";
+    document.getElementById("timenow").innerHTML+="<br>";
+    document.getElementById("timenow").innerHTML+=temp_c+" °C";
 }
 else{
     document.getElementById("timenow").innerHTML+=" PM";
+    document.getElementById("timenow").innerHTML+="<br>";
+    document.getElementById("timenow").innerHTML+=temp_c+" °C";
 }
 
 
@@ -141,18 +146,25 @@ else{
  for(let i=timenow+1;i<=timenow+12;i++){
     
 let hour = i%24;
-
+const element = document.getElementById("timenow+"+nb);
 const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
-document.getElementById("timenow+"+nb).textContent=time;
+const tempperhour_c=data.forecast.forecastday[0].hour[hour].temp_c;
+
+element.textContent=time;
 
 if(hour<12){
-    document.getElementById("timenow+"+nb).innerHTML+=" AM";
+    element.innerHTML+=" AM";
+    element.innerHTML+="<br>";
+    element.innerHTML+=tempperhour_c+" °C";
 }
 else{
-    document.getElementById("timenow+"+nb).innerHTML+=" PM";
+    element.innerHTML+=" PM";
+    element.innerHTML+="<br>";
+    element.innerHTML+=tempperhour_c+" °C";
 }
 nb++;
  }
+
 
 
 
