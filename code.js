@@ -75,10 +75,10 @@ if(locationName){
    
     console.log(timenow);
 
-if(moon==1){
+if(moon==1 || is_day==0){
     document.querySelector(".moon").style.visibility="visible";
     document.body.style.backgroundColor="rgba(0,0,128,0.89)";
-    document.querySelector(".sun").style.visibility="visible";
+    document.querySelector(".sun").style.visibility="hidden";
 }
 else{
     document.body.style.backgroundColor="rgba(246,189,115)";
@@ -90,7 +90,7 @@ if(condition=="Sunny" ){
     document.querySelector(".sun").style.visibility="visible";
     }
 
-    
+
    else if(condition=="Partly Cloudy"|| condition==="cloudy" || condition=="Clear" || condition=="Overcast"){
         document.querySelector(".cloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
