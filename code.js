@@ -7,6 +7,7 @@ const scale = document.querySelector(".scale");
 const feelsLike=document.getElementById("feels_like");
 
 
+
  function enter_Location(){
         if(loc && loc.value.length!==0){
             let firstLetter=loc.value.slice(0,1);
@@ -88,10 +89,9 @@ else{
 if(condition=="Sunny" ){
     document.querySelector(".sun").style.visibility="visible";
     }
- 
 
-   
-   else if(condition=="Partly Cloudy"|| condition==="cloudy" || condition=="Clear"){
+    
+   else if(condition=="Partly Cloudy"|| condition==="cloudy" || condition=="Clear" || condition=="Overcast"){
         document.querySelector(".cloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
