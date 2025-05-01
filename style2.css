@@ -394,7 +394,10 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
     letter-spacing: 1px;
     position: relative;
     flex-shrink: 0; 
+    padding:5px;
+    text-align: center;
 }
+
 
 .scale{
     

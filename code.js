@@ -33,7 +33,7 @@ if(locationName){
 
   async function get_weather(){
     try{
-    const response = await fetch("https://api.weatherapi.com/v1/forecast.json?key="+apikey+"&q="+city+"&aqi=no");
+    const response = await fetch("https://api.weatherapi.com/v1/forecast.json?key="+apikey+"&q="+city+"&days=5&aqi=no");
     const data = await response.json();
 
     console.log(data);
@@ -73,7 +73,7 @@ if(locationName){
     let timenow=Number(localtime.slice(11,13));
 
    
-    console.log(timenow);
+   
 
 if(moon==1 || is_day==0){
     document.querySelector(".moon").style.visibility="visible";
@@ -151,7 +151,24 @@ else{
     element.innerHTML+=tempperhour_c+" °C";
 }
 nb++;
+
  }
+
+for(let j=0;j<data.forecast.forecastday.length;j++){
+    const date= new Date(data.forecast.forecastday[j].date);
+    const week= date.toLocaleDateString("en-US", { weekday: "long" });
+    const tempperday_c=data.forecast.forecastday[j].day.avgtemp_c;
+    console.log(week);
+
+    document.getElementById("dayname"+(j+1)).innerHTML=week;
+    document.getElementById("dayname"+(j+1)).innerHTML+=" "+tempperday_c+"°C";
+// i want to edit it later not finished yet
+}
+
+
+
+
+
 
 // WHEN CHANGED THE DEGREE WE CHANGE EVERYTHIONG AGAIN
  scale.addEventListener('change', function () {
