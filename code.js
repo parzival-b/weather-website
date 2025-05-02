@@ -5,6 +5,9 @@ const temp= document.getElementById("temp");
 const apikey="8a9eb755194a4b579c0141453251204";
 const scale = document.querySelector(".scale");
 const feelsLike=document.getElementById("feels_like");
+const sun = `<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 30 30"><path fill="#f4ee00" d="M4.37 14.62c0-.24.08-.45.25-.62c.17-.16.38-.24.6-.24h2.04c.23 0 .42.08.58.25c.15.17.23.37.23.61s-.07.44-.22.61s-.35.25-.58.25H5.23c-.23 0-.43-.08-.6-.25a.83.83 0 0 1-.26-.61m2.86 6.93c0-.23.08-.43.23-.61l1.47-1.43c.15-.16.35-.23.59-.23s.44.08.6.23s.24.34.24.57c0 .24-.08.46-.24.64L8.7 22.14q-.615.48-1.23 0a.8.8 0 0 1-.24-.59m0-13.84c0-.23.08-.43.23-.61c.2-.17.41-.25.64-.25c.22 0 .42.08.59.24l1.43 1.47c.16.15.24.35.24.59q0 .36-.24.6c-.24.24-.36.24-.6.24s-.44-.08-.59-.24L7.47 8.32a.84.84 0 0 1-.24-.61m2.55 6.91c0-.93.23-1.8.7-2.6s1.1-1.44 1.91-1.91s1.67-.7 2.6-.7c.7 0 1.37.14 2.02.42c.64.28 1.2.65 1.66 1.12c.47.47.84 1.02 1.11 1.66s.41 1.32.41 2.02c0 .94-.23 1.81-.7 2.61s-1.1 1.43-1.9 1.9s-1.67.7-2.61.7s-1.81-.23-2.61-.7s-1.43-1.1-1.9-1.9c-.45-.81-.69-1.68-.69-2.62m1.7 0c0 .98.34 1.81 1.03 2.5c.68.69 1.51 1.04 2.49 1.04s1.81-.35 2.5-1.04s1.04-1.52 1.04-2.5c0-.96-.35-1.78-1.04-2.47c-.69-.68-1.52-1.02-2.5-1.02c-.97 0-1.8.34-2.48 1.02c-.7.69-1.04 1.51-1.04 2.47m2.66 7.78c0-.24.08-.44.25-.6s.37-.24.6-.24c.24 0 .45.08.61.24s.24.36.24.6v1.99c0 .24-.08.45-.25.62s-.37.25-.6.25s-.44-.08-.6-.25a.85.85 0 0 1-.25-.62zm0-15.5V4.86c0-.23.08-.43.25-.6S14.76 4 15 4s.43.08.6.25s.25.37.25.6V6.9c0 .23-.08.42-.25.58s-.37.23-.6.23s-.44-.08-.6-.23s-.26-.35-.26-.58m5.52 13.18c0-.23.08-.42.23-.56c.15-.16.34-.23.56-.23c.24 0 .44.08.6.23l1.46 1.43c.16.17.24.38.24.61s-.08.43-.24.59q-.6.465-1.2 0l-1.42-1.42a.97.97 0 0 1-.23-.65m0-10.92c0-.25.08-.45.23-.59l1.42-1.47a.84.84 0 0 1 .59-.24c.24 0 .44.08.6.25c.17.17.25.37.25.6c0 .25-.08.46-.24.62l-1.46 1.43q-.27.24-.6.24c-.23 0-.41-.08-.56-.24s-.23-.36-.23-.6m2.26 5.46c0-.24.08-.44.24-.62q.24-.24.57-.24h2.02c.23 0 .43.09.6.26s.26.37.26.6s-.09.43-.26.6s-.37.25-.6.25h-2.02c-.23 0-.43-.08-.58-.25s-.23-.36-.23-.6"/></svg>`;
+const rain=`<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 30 30"><path fill="#2003d7" d="M4.64 16.91c0-1.15.36-2.17 1.08-3.07a4.82 4.82 0 0 1 2.73-1.73c.31-1.36 1.02-2.48 2.11-3.36s2.34-1.31 3.75-1.31c1.38 0 2.6.43 3.68 1.28s1.78 1.95 2.1 3.29h.32c.89 0 1.72.22 2.48.65s1.37 1.03 1.81 1.78s.67 1.58.67 2.47c0 .88-.21 1.69-.63 2.44s-1 1.35-1.73 1.8s-1.53.69-2.4.71c-.13 0-.2-.06-.2-.17v-1.33c0-.12.07-.18.2-.18c.85-.04 1.58-.38 2.18-1.02s.9-1.39.9-2.26s-.33-1.62-.98-2.26s-1.42-.96-2.31-.96h-1.61c-.12 0-.18-.06-.18-.17l-.08-.58a4.08 4.08 0 0 0-1.39-2.71c-.82-.73-1.76-1.09-2.85-1.09s-2.05.36-2.85 1.09a4.02 4.02 0 0 0-1.36 2.71l-.07.53c0 .12-.07.19-.2.19l-.53.03c-.83.1-1.53.46-2.1 1.07s-.85 1.33-.85 2.16c0 .87.3 1.62.9 2.26s1.33.98 2.18 1.02c.11 0 .17.06.17.18v1.33c0 .11-.06.17-.17.17c-1.34-.06-2.47-.57-3.4-1.53s-1.37-2.1-1.37-3.43m5.35 6.69c0-.04.01-.11.04-.2l1.63-5.77a.837.837 0 0 1 1.02-.56c.24.04.42.17.54.37s.15.42.08.67l-1.63 5.73c-.12.43-.4.64-.82.64c-.04 0-.07-.01-.11-.02c-.06-.02-.09-.03-.1-.03a.83.83 0 0 1-.49-.33a.9.9 0 0 1-.16-.5m2.62 2.81l2.44-8.77c.04-.19.14-.34.3-.44s.32-.15.49-.15q.135 0 .27.03c.22.06.38.19.49.39s.13.41.07.64l-2.43 8.78c-.04.17-.13.31-.29.43s-.32.18-.51.18c-.09 0-.18-.02-.25-.05c-.2-.05-.37-.18-.52-.39c-.11-.18-.13-.39-.06-.65m4.13-2.79c0-.04.01-.11.04-.23l1.63-5.77a.83.83 0 0 1 .3-.44c.15-.1.3-.15.46-.15c.08 0 .17.01.26.03c.21.06.36.16.46.31s.15.31.15.47c0 .03-.01.08-.02.14s-.02.1-.02.12l-1.63 5.73c-.04.19-.13.35-.28.46s-.32.17-.51.17l-.24-.05a.8.8 0 0 1-.46-.32a.9.9 0 0 1-.14-.47"/></svg>`;
+const cloud=`<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 30 30"><path fill="#3f3e46" d="M4.61 16.88c0-1.15.36-2.17 1.08-3.07s1.63-1.48 2.74-1.73c.31-1.37 1.02-2.49 2.11-3.37s2.35-1.32 3.76-1.32c1.38 0 2.61.43 3.69 1.28s1.78 1.95 2.1 3.29h.33c.9 0 1.73.22 2.49.65s1.37 1.03 1.81 1.79s.67 1.58.67 2.48a4.94 4.94 0 0 1-2.36 4.25c-.73.45-1.54.69-2.41.72H9.41c-1.34-.06-2.47-.57-3.4-1.53c-.93-.95-1.4-2.1-1.4-3.44m1.71 0c0 .87.3 1.62.9 2.26s1.33.98 2.19 1.03H20.6c.86-.04 1.59-.39 2.19-1.03c.61-.64.91-1.4.91-2.26c0-.88-.33-1.63-.98-2.27s-1.42-.96-2.32-.96h-1.6c-.11 0-.17-.06-.17-.18l-.07-.57c-.11-1.08-.58-1.99-1.4-2.72s-1.77-1.1-2.86-1.1s-2.05.37-2.85 1.1c-.81.73-1.27 1.64-1.37 2.72l-.08.57c0 .12-.07.18-.2.18h-.53c-.84.1-1.54.46-2.1 1.07s-.85 1.33-.85 2.16"/></svg>`;
 
 
 
@@ -98,7 +101,7 @@ if(condition=="Sunny" ){
 
     }
 
-   else  if(condition=="rainy" || condition=="Patchy light drizzle" || condition==="Patchy rain nearby"){
+   else  if(condition=="rainy" || condition=="Patchy light drizzle" || condition==="Patchy rain nearby" || condition=="Light rain"){
         document.querySelector(".raincloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
@@ -119,12 +122,12 @@ const now= document.getElementById("timenow");
 
 if(timenow<12){
    
-    now.innerHTML=timenow+" AM";
+    now.innerHTML=localtime.slice(11,)+" AM";
     now.innerHTML+="<br>";
     now.innerHTML+=temp_c+" °C";
 }
 else{
-    now.innerHTML=timenow-12+" PM";
+    now.innerHTML=localtime.slice(11,13)-12+localtime.slice(13,)+"PM";
     now.innerHTML+="<br>";
     now.innerHTML+=temp_c+" °C";
 }
@@ -137,9 +140,9 @@ let hour = i%24;
 const element = document.getElementById("timenow+"+nb);
 const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
 const tempperhour_c=data.forecast.forecastday[0].hour[hour].temp_c;
+const conditionperhour=data.forecast.forecastday[0].hour[hour].condition.text;
 
-
-
+// i think i wanna restructre this and make them elements in the div not just add to it 
 if(hour<12){
     element.innerHTML=time+" AM";
     element.innerHTML+="<br>";
@@ -158,7 +161,6 @@ for(let j=0;j<data.forecast.forecastday.length;j++){
     const date= new Date(data.forecast.forecastday[j].date);
     const week= date.toLocaleDateString("en-US", { weekday: "long" });
     const tempperday_c=data.forecast.forecastday[j].day.avgtemp_c;
-    console.log(week);
 
     document.getElementById("dayname"+(j+1)).innerHTML=week;
     document.getElementById("dayname"+(j+1)).innerHTML+=" "+tempperday_c+"°C";
@@ -171,7 +173,7 @@ for(let j=0;j<data.forecast.forecastday.length;j++){
 
 
 // WHEN CHANGED THE DEGREE WE CHANGE EVERYTHIONG AGAIN
- scale.addEventListener('change', function () {
+scale.addEventListener('change', function () {
 
     if(scale.checked){
                feelsLike.textContent= "feels like: "+feels_like_f+"°F";
@@ -181,12 +183,12 @@ for(let j=0;j<data.forecast.forecastday.length;j++){
 
                if(timenow<12){
                   
-                   now.innerHTML=timenow+" AM";
+                   now.innerHTML=localtime.slice(11,)+" AM";
                    now.innerHTML+="<br>";
                   now.innerHTML+=temp_f+" °F";
                }
                else{
-                  now.innerHTML=timenow-12+" PM";
+                   now.innerHTML=localtime.slice(11,13)-12+localtime.slice(13,)+"PM";
                    now.innerHTML+="<br>";
                    now.innerHTML+=temp_f+" °F";
                }
@@ -224,12 +226,12 @@ for(let j=0;j<data.forecast.forecastday.length;j++){
        
     if(timenow<12){
    
-      now.innerHTML=timenow+" AM";
+      now.innerHTML=localtime.slice(11,)+" AM";
       now.innerHTML+="<br>";
       now.innerHTML+=temp_c+" °C";
    }
     else{
-     now.innerHTML=timenow-12+" PM";
+     now.innerHTML=localtime.slice(11,13)-12+localtime.slice(13,)+"PM";
      now.innerHTML+="<br>";
      now.innerHTML+=temp_c+" °C";
     }
@@ -258,7 +260,7 @@ let nb=1;
          }
 
     }
-   });
+});
 
 
 
