@@ -1,5 +1,6 @@
 body{
     font-family:fantasy;
+    background-color:#000040;
     color: white;
     min-height:70vh;
     padding:100px;
@@ -343,12 +344,12 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
         font-family: 'Bagel Fat One';
         font-size:25px;
         gap:30px;
-        padding:20px;
+        padding:18px;
     }
 
 
 .hour{
-    width:100px;
+    width:120px;
     height:120px;
     border-radius: 15px;
     font-family: 'Bagel Fat One';
@@ -357,6 +358,7 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
     letter-spacing: 1px;
     flex-shrink: 0; 
 }
+
 
 
 
