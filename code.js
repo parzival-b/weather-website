@@ -63,7 +63,7 @@ if(locationName){
     const month = new Date(localtime);
     const monthname = month.toLocaleDateString("en-US", { month: "long" });
 
-    document.getElementById("time").textContent = localtime.slice(11,);
+    document.getElementById("time").innerHTML = localtime.slice(11,);
     document.getElementById("date").innerHTML+=dayname+","+localtime.slice(8,10)+","+monthname;
     locationName.textContent=city+","+country;
     temp.textContent=temp_c+"°C";
@@ -136,15 +136,19 @@ else{
 }
 
 // HOURLY WITH TEMP SIGN NOT CHANGED
-
+let day =0;
  for(let i=timenow+1;i<=timenow+12;i++){
     
 let hour = i%24;
+if(hour==0){
+    day++;
+}
 const element = document.getElementById("timenow+"+nb);
 const icon= document.getElementById("condition+"+nb);
 const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
-const tempperhour_c=data.forecast.forecastday[0].hour[hour].temp_c;
-const conditionperhour=data.forecast.forecastday[0].hour[hour].condition.text;
+const tempperhour_c=data.forecast.forecastday[day].hour[hour].temp_c;
+const conditionperhour=data.forecast.forecastday[day].hour[hour].condition.text;
+
 console.log(conditionperhour);
 
 
@@ -171,16 +175,22 @@ if(conditionperhour==="Sunny"){
       icon.innerHTML=rain;
     }
     
-// i think i wanna restructre this and make them elements in the div not just add to it 
 // i just realized now that when it becomes the second day im still accessing the same day information
 //  i will fix it later 
+// i wanna check to see if the temp is right acc to the hour of the day 
+// the week  snot yet done correctly
+
 if(hour<12){
     element.innerHTML=time+" AM";
-    element.innerHTML+="<br>";
+    
+}
+else if(hour==12){
+    element.innerHTML=time+" PM";
+    
 }
 else{
     element.innerHTML=time-12+" PM";
-    element.innerHTML+="<br>";
+   
  
 }
 nb++;
@@ -191,9 +201,24 @@ for(let j=0;j<data.forecast.forecastday.length;j++){
     const date= new Date(data.forecast.forecastday[j].date);
     const week= date.toLocaleDateString("en-US", { weekday: "long" });
     const tempperday_c=data.forecast.forecastday[j].day.avgtemp_c;
+    const conditionperday=data.forecast.forecastday[0].hour[j].condition.text;
+    const day =document.getElementById("dayname"+(j+1));
 
-    document.getElementById("dayname"+(j+1)).innerHTML=week;
-    document.getElementById("dayname"+(j+1)).innerHTML+=" "+tempperday_c+"°C";
+    day.innerHTML=week;
+
+    if(conditionperday==="Sunny"){
+        day.innerHTML+=sun;
+      }
+  
+     else if(conditionperday=="Partly cloudy"||conditionperday=="cloudy" || conditionperday=="Clear " || conditionperday=="cloudy" || conditionperday=="Overcast " || conditionperday=="Partly Cloudy "){
+         day.innerHTML+=cloud;
+  
+      }
+  
+     else  if(conditionperday=="rainy" || conditionperday=="Patchy light drizzle" || conditionperday=="Patchy rain nearby" || conditionperday==="cloudy" || conditionperday=="Light rain" || conditionperday=="Light drizzle"){
+        day.innerHTML+=rain;
+      }
+      day.innerHTML+=tempperday_c+"°C";
 // i want to edit it later not finished yet
 }
 
@@ -250,6 +275,7 @@ scale.addEventListener('change', function () {
                
 
     }
+
     else{
        feelsLike.textContent= "feels like: "+feels_like_c+"°C";
        temp.textContent= temp_c+"°C";
@@ -289,6 +315,7 @@ let nb=1;
         }
         nb++;
          }
+
 
     }
 });
