@@ -53,10 +53,10 @@ if(locationName){
     const feels_like_c=data.current.feelslike_c;
     const feels_like_f=data.current.feelslike_f;
     const condition= data.current.condition.text;
-    
     const moon = data.forecast.forecastday[0].astro.is_moon_up;
     const sunrise = data.forecast.forecastday[0].astro.sunrise;
     const sunset= data.forecast.forecastday[0].astro.sunset;
+
 
     const date = new Date(localtime);
     const dayname= date.toLocaleDateString("en-US", { weekday: "long" });
@@ -78,7 +78,7 @@ if(locationName){
    
    
 
-if(moon==1 || is_day==0){
+if(moon==1 && is_day==0){
     document.querySelector(".moon").style.visibility="visible";
 
     document.querySelector(".sun").style.visibility="hidden";
@@ -145,6 +145,9 @@ const icon= document.getElementById("condition+"+nb);
 const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
 const tempperhour_c=data.forecast.forecastday[0].hour[hour].temp_c;
 const conditionperhour=data.forecast.forecastday[0].hour[hour].condition.text;
+console.log(conditionperhour);
+
+
 element.style.color="rgba(255,255,255,0.6)";
 element.style.fontSize="20px";
 element.style.textAlign="center";
@@ -155,21 +158,22 @@ icon.style.position="relative";
 
 
 
-if(conditionperhour=="Sunny" ){
-  icon.innerHTML=sun;
+if(conditionperhour==="Sunny"){
+      icon.innerHTML=sun;
     }
 
-
-   else if(conditionperhour=="Partly cloudy"||conditionperhour==="cloudy" || conditionperhour=="Clear" || conditionperhour==="cloudy" || conditionperhour=="Overcast " || conditionperhour=="Partly Cloudy "){
+   else if(conditionperhour=="Partly cloudy"||conditionperhour=="cloudy" || conditionperhour=="Clear " || conditionperhour=="cloudy" || conditionperhour=="Overcast " || conditionperhour=="Partly Cloudy "){
        icon.innerHTML=cloud;
 
     }
 
-   else  if(conditionperhour=="rainy" || conditionperhour=="Patchy light drizzle" || conditionperhour==="Patchy rain nearby" || conditionperhour==="cloudy" || conditionperhour=="Light rain" || conditionperhour=="Light drizzle"){
-     icon.innerHTML=rain;
+   else  if(conditionperhour=="rainy" || conditionperhour=="Patchy light drizzle" || conditionperhour=="Patchy rain nearby" || conditionperhour==="cloudy" || conditionperhour=="Light rain" || conditionperhour=="Light drizzle"){
+      icon.innerHTML=rain;
     }
     
 // i think i wanna restructre this and make them elements in the div not just add to it 
+// i just realized now that when it becomes the second day im still accessing the same day information
+//  i will fix it later 
 if(hour<12){
     element.innerHTML=time+" AM";
     element.innerHTML+="<br>";
@@ -199,6 +203,7 @@ for(let j=0;j<data.forecast.forecastday.length;j++){
 
 
 // WHEN CHANGED THE DEGREE WE CHANGE EVERYTHIONG AGAIN
+// i want to make it a function so as to not repeat the code again and again
 scale.addEventListener('change', function () {
 
     if(scale.checked){
