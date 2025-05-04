@@ -63,6 +63,10 @@ if(locationName){
     const month = new Date(localtime);
     const monthname = month.toLocaleDateString("en-US", { month: "long" });
 
+    const now= document.getElementById("timenow0");
+    const cond_now= document.getElementById("condition0");
+    const temp_now= document.getElementById("temp0");
+
     document.getElementById("time").innerHTML = localtime.slice(11,);
     document.getElementById("date").innerHTML+=dayname+","+localtime.slice(8,10)+","+monthname;
     locationName.textContent=city+","+country;
@@ -91,6 +95,7 @@ else{
 
 if(condition=="Sunny" ){
     document.querySelector(".sun").style.visibility="visible";
+    cond_now.innerHTML=sun;
     }
 
 
@@ -98,13 +103,14 @@ if(condition=="Sunny" ){
         document.querySelector(".cloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
-
+        cond_now.innerHTML=cloud;
     }
 
    else  if(condition=="rainy" || condition=="Patchy light drizzle" || condition==="Patchy rain nearby" || condition=="Light rain"){
         document.querySelector(".raincloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
+        cond_now.innerHTML=rain;
     }
     else{
         document.querySelector(".sun").style.visibility="hidden";
@@ -118,21 +124,30 @@ if(condition=="Sunny" ){
 
 
 let nb=1;
-const now= document.getElementById("timenow");
+temp_now.innerHTML=temp_c+"°C";
+temp_now.style.position="relative";
+temp_now.style.top="-70px";
+temp_now.style.left="20px";
+
+
 now.style.color="rgba(255,255,255,0.6)";
 now.style.fontSize="20px";
 now.style.textAlign="center";
 now.style.fontFamily="B612";
+cond_now.style.position="relative";
+cond_now.style.top="-30px";
+cond_now.style.left="30px";
+
+
 if(timenow<12){
    
     now.innerHTML=localtime.slice(11,)+" AM";
-    now.innerHTML+="<br>";
-    now.innerHTML+=temp_c+" °C";
+  
+   
 }
 else{
     now.innerHTML=localtime.slice(11,13)-12+localtime.slice(13,)+" PM";
-    now.innerHTML+="<br>";
-    now.innerHTML+=temp_c+" °C";
+   
 }
 
 // HOURLY WITH TEMP SIGN NOT CHANGED
@@ -159,6 +174,9 @@ element.style.fontFamily="B612";
 icon.style.top="-30px";
 icon.style.left="30px";
 icon.style.position="relative";
+document.getElementById("temp+"+nb).style.position="relative";
+document.getElementById("temp+"+nb).style.top="-70px";
+document.getElementById("temp+"+nb).style.left="25px";
 
 
 
@@ -193,6 +211,7 @@ else{
    
  
 }
+document.getElementById("temp+"+nb).innerHTML=tempperhour_c+"°C";
 nb++;
 
  }
@@ -236,41 +255,36 @@ scale.addEventListener('change', function () {
                temp.textContent= temp_f+"°F";
 
                
-
+               temp_now.innerHTML=temp_f+"°F";
                if(timenow<12){
                   
                    now.innerHTML=localtime.slice(11,)+" AM";
-                   now.innerHTML+="<br>";
-                  now.innerHTML+=temp_f+" °F";
+                
                }
                else{
                    now.innerHTML=localtime.slice(11,13)-12+localtime.slice(13,)+" PM";
-                   now.innerHTML+="<br>";
-                   now.innerHTML+=temp_f+" °F";
+                  
                }
                
 
                let nb=1;
+               let day=0;
                for(let i=timenow+1;i<=timenow+12;i++){
     
+    
                 let hour = i%24;
+                if(hour==0){
+                    day++;
+                }
                 const element = document.getElementById("timenow+"+nb);
                 const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
-                const tempperhour_f=data.forecast.forecastday[0].hour[hour].temp_f;
+                const tempperhour_f=data.forecast.forecastday[day].hour[hour].temp_f;
                 
                
-                
-                if(hour<12){
-                    element.innerHTML=time+" AM";
-                    element.innerHTML+="<br>";
-                    element.innerHTML+=tempperhour_f+" °F";
-                }
-                else{
-                    element.innerHTML=time-12+" PM";
-                    element.innerHTML+="<br>";
-                    element.innerHTML+=tempperhour_f+" °F";
-                }
+              
+                document.getElementById("temp+"+nb).innerHTML=tempperhour_f+"°F";
                 nb++;
+                
                  }
                
 
@@ -280,40 +294,34 @@ scale.addEventListener('change', function () {
        feelsLike.textContent= "feels like: "+feels_like_c+"°C";
        temp.textContent= temp_c+"°C";
 
-       
+       temp_now.innerHTML=temp_c+"°C";
     if(timenow<12){
    
       now.innerHTML=localtime.slice(11,)+" AM";
-      now.innerHTML+="<br>";
-      now.innerHTML+=temp_c+" °C";
+     
    }
     else{
      now.innerHTML=localtime.slice(11,13)-12+localtime.slice(13,)+" PM";
-     now.innerHTML+="<br>";
-     now.innerHTML+=temp_c+" °C";
+     
     }
 
 
 let nb=1;
+let day=0;
        for(let i=timenow+1;i<=timenow+12;i++){
-    
         let hour = i%24;
+    if(hour==0){
+        day++;  
+    }
+        
         const element = document.getElementById("timenow+"+nb);
         const time = data.forecast.forecastday[0].hour[hour].time.slice(11,13);
-        const tempperhour_c=data.forecast.forecastday[0].hour[hour].temp_c;
+        const tempperhour_c=data.forecast.forecastday[day].hour[hour].temp_c;
         
         
-        if(hour<12){
-            element.innerHTML=time+" AM";
-            element.innerHTML+="<br>";
-            element.innerHTML+=tempperhour_c+" °C";
-        }
-        else{
-            element.innerHTML=time-12+" PM";
-            element.innerHTML+="<br>";
-            element.innerHTML+=tempperhour_c+" °C";
-        }
+        document.getElementById("temp+"+nb).innerHTML=tempperhour_c+"°C";
         nb++;
+        
          }
 
 
