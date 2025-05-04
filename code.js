@@ -224,6 +224,8 @@ for(let j=0;j<data.forecast.forecastday.length;j++){
     const day =document.getElementById("dayname"+(j+1));
 
     day.innerHTML=week;
+    day.style.top="-15px";
+   
 
     if(conditionperday==="Sunny"){
         day.innerHTML+=sun;
@@ -237,7 +239,7 @@ for(let j=0;j<data.forecast.forecastday.length;j++){
      else  if(conditionperday=="rainy" || conditionperday=="Patchy light drizzle" || conditionperday=="Patchy rain nearby" || conditionperday==="cloudy" || conditionperday=="Light rain" || conditionperday=="Light drizzle"){
         day.innerHTML+=rain;
       }
-      day.innerHTML+=tempperday_c+"°C";
+      document.getElementById("daytemp"+(j+1)).innerHTML=tempperday_c+"°C";
 // i want to edit it later not finished yet
 }
 
@@ -286,8 +288,17 @@ scale.addEventListener('change', function () {
                 nb++;
                 
                  }
-               
 
+
+                 for(let j=0;j<data.forecast.forecastday.length;j++){
+                    
+                
+                    const tempperday_f=data.forecast.forecastday[j].day.avgtemp_f;
+            
+                
+                      document.getElementById("daytemp"+(j+1)).innerHTML=tempperday_f+"°C";
+               
+                 }
     }
 
     else{
@@ -323,13 +334,19 @@ let day=0;
         nb++;
         
          }
+         for(let j=0;j<data.forecast.forecastday.length;j++){
+                    
+                
+            const tempperday_c=data.forecast.forecastday[j].day.avgtemp_c;
+    
+        
+              document.getElementById("daytemp"+(j+1)).innerHTML=tempperday_c+"°C";
+       
+         }
 
 
     }
 });
-
-
-
 
 console.log(condition);
 

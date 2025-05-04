@@ -376,7 +376,7 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
         border-radius:25px;
         position: absolute;
         top:450px;
-        width:270px;
+        width:290px;
         height:200px;
         left:1080px;
         overflow-y:scroll;
@@ -404,6 +404,12 @@ box-shadow: 0 0 80px 10px rgba(255,255,255,0.6);
     display: flex;
     align-items: center;
 
+}
+.day div{
+
+    align-items: center;
+    position: relative;
+    padding:5px;
 }
 
 
