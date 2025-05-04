@@ -100,7 +100,7 @@ if(condition=="Sunny" ){
     }
 
 
-   else if(condition=="Partly cloudy"|| condition==="cloudy" || condition=="Clear" || condition=="Overcast"){
+   else if(condition=="Partly cloudy"|| condition==="cloudy" || condition=="Clear" || condition=="Overcast" || condition=="Partly Cloudy"){
         document.querySelector(".cloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
