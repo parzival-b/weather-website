@@ -107,7 +107,7 @@ if(condition=="Sunny" ){
         cond_now.innerHTML=cloud;
     }
 
-   else  if(condition=="rainy" || condition=="Patchy light drizzle" || condition==="Patchy rain nearby" || condition=="Light rain"){
+   else  if(condition=="rainy" || condition=="Patchy light drizzle" || condition==="Patchy rain nearby" || condition=="Light rain" || condition=="Moderate or heavy rain shower"){
         document.querySelector(".raincloud").style.visibility="visible";
         document.querySelector(".moon").style.visibility="hidden";
         document.querySelector(".sun").style.visibility="hidden";
@@ -209,7 +209,7 @@ if(conditionperhour==="Sunny"){
     }
 
 
-   else  if(conditionperhour=="rainy" || conditionperhour=="Patchy light drizzle" || conditionperhour=="Patchy rain nearby" || conditionperhour==="cloudy" || conditionperhour=="Light rain" || conditionperhour=="Light drizzle" || conditionperhour=="Light rain shower"){
+   else  if(conditionperhour=="rainy" || conditionperhour=="Patchy light drizzle" || conditionperhour=="Patchy rain nearby" || conditionperhour==="cloudy" || conditionperhour=="Light rain" || conditionperhour=="Light drizzle" || conditionperhour=="Light rain shower"|| conditionperhour=="Moderate or heavy rain shower"){
       icon.innerHTML=rain;
     }
     
