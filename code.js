@@ -12,6 +12,7 @@ const thunder =`<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" v
 const snow =`<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 30 30"><path fill="#fff" d="M4.64 16.95c0-1.16.35-2.18 1.06-3.08s1.62-1.48 2.74-1.76q.465-2.04 2.1-3.36c1.635-1.32 2.34-1.31 3.75-1.31c1.38 0 2.6.43 3.68 1.28s1.78 1.95 2.1 3.29h.32c.89 0 1.72.22 2.48.66s1.37 1.04 1.81 1.8s.67 1.59.67 2.48c0 1.32-.46 2.47-1.39 3.42c-.92.96-2.05 1.46-3.38 1.5c-.13 0-.2-.06-.2-.17v-1.33c0-.12.07-.18.2-.18c.85-.04 1.58-.38 2.18-1.02s.9-1.38.9-2.23c0-.89-.32-1.65-.97-2.3s-1.42-.97-2.32-.97h-1.61c-.12 0-.18-.06-.18-.17l-.08-.58c-.11-1.08-.58-1.99-1.39-2.72c-.82-.73-1.76-1.1-2.85-1.1c-1.1 0-2.05.37-2.86 1.11s-1.27 1.65-1.37 2.75l-.06.5c0 .12-.07.19-.2.19l-.53.07c-.83.07-1.53.41-2.1 1.04s-.85 1.35-.85 2.19c0 .85.3 1.59.9 2.23s1.33.97 2.18 1.02c.11 0 .17.06.17.18v1.33c0 .11-.06.17-.17.17c-1.34-.04-2.47-.54-3.4-1.5c-.87-.96-1.33-2.11-1.33-3.43M11 21.02c0-.22.08-.42.24-.58s.35-.24.59-.24c.23 0 .43.08.59.24s.24.36.24.58q0 .36-.24.6c-.16.17-.35.25-.59.25c-.23 0-.43-.08-.59-.25a.8.8 0 0 1-.24-.6m0 3.63q0-.36.24-.6c.16-.15.35-.23.58-.23s.43.08.59.23c.16.16.24.35.24.59s-.08.43-.24.59s-.35.23-.59.23a.84.84 0 0 1-.59-.23a.8.8 0 0 1-.23-.58m3.19-1.7c0-.23.08-.44.25-.62q.24-.24.57-.24c.23 0 .43.09.6.26s.26.37.26.6s-.08.43-.25.6s-.37.25-.61.25c-.23 0-.42-.08-.58-.25s-.24-.37-.24-.6m0-3.62c0-.23.08-.43.25-.6q.27-.24.57-.24c.24 0 .44.08.61.25a.8.8 0 0 1 .25.6c0 .23-.08.43-.25.59s-.37.24-.61.24c-.23 0-.42-.08-.58-.24a.85.85 0 0 1-.24-.6m0 7.28c0-.23.08-.43.25-.61q.24-.24.57-.24c.24 0 .44.08.61.25s.25.37.25.6s-.08.43-.25.59s-.37.24-.61.24a.824.824 0 0 1-.82-.83m3.22-5.59c0-.22.08-.41.25-.58s.37-.25.6-.25s.43.08.59.24s.24.36.24.58q0 .36-.24.6c-.16.17-.35.25-.59.25s-.44-.08-.6-.25a.82.82 0 0 1-.25-.59m0 3.63c0-.22.08-.42.25-.6c.16-.15.36-.23.6-.23s.43.08.59.23s.23.35.23.59s-.08.43-.23.59c-.16.16-.35.23-.59.23q-.36 0-.6-.24a.76.76 0 0 1-.25-.57"/></svg>`;
 const fog =`<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 30 30"><path fill="#fff" d="M2.62 21.05c0-.24.08-.45.25-.61q.255-.24.63-.24h18.67a.82.82 0 0 1 .85.85c0 .23-.08.43-.25.58c-.17.16-.37.23-.6.23H3.5c-.25 0-.46-.08-.63-.23a.76.76 0 0 1-.25-.58m2.62-3.14c0-.24.09-.44.26-.6c.15-.15.35-.23.59-.23h18.67c.23 0 .42.08.58.24s.23.35.23.59s-.08.44-.23.6c-.16.17-.35.25-.58.25H6.09c-.24 0-.44-.08-.6-.25a.82.82 0 0 1-.25-.6m.13-2.39c0 .09.05.13.15.13h1.43c.06 0 .13-.05.2-.16c.24-.52.59-.94 1.06-1.27s.99-.52 1.55-.56l.55-.07c.11 0 .17-.06.17-.18l.07-.5c.11-1.08.56-1.98 1.37-2.7q1.215-1.08 2.85-1.08c1.08 0 2.02.36 2.83 1.07c.8.71 1.26 1.61 1.37 2.68l.08.57c0 .11.07.17.2.17h1.59c.64 0 1.23.17 1.76.52s.92.8 1.18 1.37c.07.11.14.16.21.16h1.43c.12 0 .17-.07.14-.23c-.29-1.02-.88-1.86-1.74-2.51c-.87-.65-1.86-.97-2.97-.97h-.32q-.495-1.995-2.1-3.27c-1.605-1.275-2.28-1.27-3.65-1.27c-1.4 0-2.64.44-3.73 1.32s-1.78 2-2.09 3.36c-.85.2-1.6.6-2.24 1.21s-1.09 1.33-1.34 2.18v-.04c-.01 0-.01.03-.01.07m1.61 8.59c0-.24.09-.43.26-.59c.15-.15.35-.23.6-.23h18.68c.24 0 .44.08.6.23c.17.16.25.35.25.58c0 .24-.08.44-.25.61s-.37.25-.6.25H7.84c-.23 0-.43-.09-.6-.26a.77.77 0 0 1-.26-.59"/></svg>`;
 
+
  function enter_Location(){
         if(loc && loc.value.length!==0){
             let firstLetter=loc.value.slice(0,1);
@@ -39,11 +40,22 @@ if(locationName){
     try{
     const response = await fetch("https://api.weatherapi.com/v1/forecast.json?key="+apikey+"&q="+city+"&days=5&aqi=no");
     const data = await response.json();
-
     console.log(data);
+    return data;
 
-    
-    console.log(data.forecast.forecastday[0].hour);
+    }
+    catch(error){
+        console.log("Error fetching data:", error);
+         return null;
+    }
+
+  }
+
+     
+  async function displayWeather(){
+
+    const data = await get_weather();
+
     const country= data.location.country;
     const temp_c= data.current.temp_c;
     const temp_f= data.current.temp_f;
@@ -61,8 +73,7 @@ if(locationName){
 
     const date = new Date(localtime);
     const dayname= date.toLocaleDateString("en-US", { weekday: "long" });
-    const month = new Date(localtime);
-    const monthname = month.toLocaleDateString("en-US", { month: "long" });
+    const monthname = date.toLocaleDateString("en-US", { month: "long" });
 
     const now= document.getElementById("timenow0");
     const cond_now= document.getElementById("condition0");
@@ -277,8 +288,7 @@ for(let j=0;j<data.forecast.forecastday.length;j++){
 
 
 
-// WHEN CHANGED THE DEGREE WE CHANGE EVERYTHIONG AGAIN
-// i want to make it a function so as to not repeat the code again and again
+
 scale.addEventListener('change', function () {
 
     if(scale.checked){
@@ -377,17 +387,6 @@ let day=0;
     }
 });
 
-console.log(condition);
-
-
-
     }
-    catch(error){
-console.log(error);
-    }
-}
-get_weather();
-
-
-
+    displayWeather();
 }
